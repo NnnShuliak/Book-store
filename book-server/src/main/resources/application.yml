@@ -1,0 +1,19 @@
+grpc:
+  server:
+    port: 9090
+server:
+  port: 8081
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/book_store_db
+    username: postgres
+    password: postgresroot
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        format_sql: true
+        highlight_sql: true
+    show-sql: true
