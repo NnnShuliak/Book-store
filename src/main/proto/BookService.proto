@@ -1,0 +1,56 @@
+syntax = "proto3";
+
+package com.example.grpc;
+
+import "google/protobuf/Empty.proto";
+
+option java_multiple_files = true;
+
+
+
+message UUID{
+  string id = 1;
+}
+
+message BookResponse{
+  string title = 2;
+  string author = 3;
+  string isbn = 4;
+  int32 quantity = 5;
+}
+
+message BookFindRequest{
+  string isbn= 1;
+}
+
+message BookCreationRequest {
+  string title = 1;
+  string author = 2;
+  string isbn = 3;
+  int32 quantity = 4;
+}
+
+message BookUpdateData{
+  string title = 1;
+  string author = 2;
+  int32 quantity = 4;
+}
+
+message BookUpdateRequest{
+  BookUpdateData data = 1;
+  string isbn = 2;
+}
+
+message BookDeleteRequest{
+  string isbn = 1;
+}
+
+service BookService{
+  rpc findAllBooks(google.protobuf.Empty) returns(stream BookResponse);
+  rpc findBook(BookFindRequest) returns(BookResponse);
+  rpc createBook(BookCreationRequest) returns(BookResponse);
+  rpc updateBook(BookUpdateRequest) returns(BookResponse);
+  rpc deleteBook(BookDeleteRequest) returns(google.protobuf.Empty);
+}
+
+
