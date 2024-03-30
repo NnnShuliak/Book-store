@@ -16,11 +16,14 @@ repositories {
 dependencies {
     implementation project(path: ':')
     implementation 'org.springframework.boot:spring-boot-starter-web'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
     implementation 'net.devh:grpc-client-spring-boot-starter:2.15.0.RELEASE'
 
     implementation 'org.mapstruct:mapstruct:1.5.5.Final'
     annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.5.Final'
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+
 }
 
 test {

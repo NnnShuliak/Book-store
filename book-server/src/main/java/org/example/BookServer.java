@@ -18,20 +18,6 @@ public class BookServer {
         SpringApplication.run(BookServer.class);
     }
 
-    @Bean
-    public CommandLineRunner commandLineRunner(BookMapper bookMapper){
-        return new CommandLineRunner() {
-            @Override
-            public void run(String... args) throws Exception {
-//                Book book = new Book();
-//                book.setId(UUID.randomUUID());
-//
-//                book.setAuthor("asd");
-//                book.setIsbn("asd");
-//
-//
-//                System.out.println(bookMapper.toResponse(book));
-            }
-        };
-    }
+
+
 }

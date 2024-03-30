@@ -1,7 +1,10 @@
 package org.example.domain;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.NaturalId;
 
 import java.util.UUID;
@@ -9,6 +12,9 @@ import java.util.UUID;
 @Entity
 @Data
 @Table(name = "books")
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class Book {
 
     @Id

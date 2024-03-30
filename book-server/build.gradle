@@ -12,14 +12,26 @@ repositories {
     mavenCentral()
 }
 
+ext {
+    mapStructVersion = '1.5.5.Final'
+    testcontainersVersion = '1.19.7'
+}
+
 dependencies {
     implementation project(path: ':') // Reference to parent project
     implementation 'net.devh:grpc-server-spring-boot-starter:2.15.0.RELEASE'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     runtimeOnly 'org.postgresql:postgresql'
 
-    implementation 'org.mapstruct:mapstruct:1.5.5.Final'
-    annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.5.Final'
+    implementation "org.mapstruct:mapstruct:${mapStructVersion}"
+    annotationProcessor "org.mapstruct:mapstruct-processor:${mapStructVersion}"
+
+    testImplementation "org.springframework.boot:spring-boot-starter-test"
+    testImplementation "org.testcontainers:testcontainers:${testcontainersVersion}"
+    testImplementation "org.testcontainers:junit-jupiter:${testcontainersVersion}"
+    testImplementation "org.testcontainers:postgresql:${testcontainersVersion}"
+    testImplementation 'net.devh:grpc-client-spring-boot-starter:2.15.0.RELEASE'
+
 
 
 }
